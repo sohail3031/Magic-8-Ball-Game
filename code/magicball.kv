@@ -1,0 +1,309 @@
+<MagicBallWindow>:
+    MDBoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        ScreenManager:
+            id: screen_manager
+            Screen:
+                id: first_screen
+                name: "first_screen"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: 10
+                    spacing: 10
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: .1
+                        canvas.before:
+                            Color:
+                                rgba: (.06, .47, .47, 1)
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        MDLabel:
+                            text: "Welcome To Magic 8 Ball Game"
+                            bold: True
+                            font_size: 30
+                            halign: "center"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: .7
+                        canvas.before:
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                                source: "images/magic_ball.jpg"
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: .1
+                        spacing: 10
+                        MDRaisedButton:
+                            text: "Let's Play"
+                            size_hint: 1, 1
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            bold: True
+                            font_size: 20
+                            on_release: root.change_first_screen()
+                        MDRaisedButton:
+                            text: "Exit"
+                            size_hint: 1, 1
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            bold: True
+                            font_size: 20
+                            on_release: app.stop()
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: .1
+                        canvas.before:
+                            Color:
+                                rgba: (.06, .47, .47, 1)
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        MDLabel:
+                            text: "Created By Mohd Sohail Ahmed"
+                            bold: True
+                            font_size: 20
+                            halign: "center"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+            Screen:
+                id: second_screen
+                name: "second_screen"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: 10
+                    spacing: 10
+                    canvas.before:
+                        Color:
+                            rgba: (1, 1, 1, 1)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        canvas.before:
+                            Color:
+                                rgba: (.06, .45, .45, 1)
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            size_hint_y: .4
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            size_hint_y: .2
+                            spacing: 10
+                            MDTextField:
+                                multiline: False
+                                id: user_name
+                                hint_text: "Enter Username"
+                                required: True
+                                color_mode: "accent"
+                                mode: "rectangle"
+                                line_color_normal: app.theme_cls.accent_color
+                                size_hint: (None, None)
+                                width: 200
+                                height: 30
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                on_text_validate: root.validate_user_name()
+                            MDRaisedButton:
+                                size_hint: (None, None)
+                                width: 400
+                                height: 40
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                text: "Let's Play"
+                                bold: True
+                                font_size: 20
+                                on_release: root.validate_user_name()
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            size_hint_y: .4
+            Screen:
+                id: third_screen
+                name: "third_screen"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: 10
+                    spacing: 10
+                    canvas.before:
+                        Color:
+                            rgba: (1, 1, 1, 1)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: .1
+                        canvas.before:
+                            Color:
+                                rgba: (.06, .45, .45, 1)
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        MDLabel:
+                            text: "Welcome User"
+                            bold: True
+                            font_size: 30
+                            id: welcome_user
+                            halign: "center"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: .8
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: 10
+                            canvas.before:
+                                Color:
+                                    rgba: (1, 1, 1, 1)
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                size_hint_x: .7
+                                spacing: 30
+                                canvas.before:
+                                    Color:
+                                        rgba: (.06, .45, .45, 1)
+                                    Rectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    size_hint_y: .2
+                                    MDLabel:
+                                        id: speech_recognition_status
+                                        bold: True
+                                        font_size: "20dp"
+                                        theme_text_color: "Custom"
+                                        text_color: 1, 1, 1, 1
+                                        halign: "center"
+                                        text: "Speech Recognition Status: OFF"
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    size_hint_y: .3
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    size_hint_y: .2
+                                    spacing: 30
+                                    padding: 30
+                                    MDTextFieldRect:
+                                        multiline: False
+                                        font_size: "20dp"
+                                        id: ask_question
+                                        hint_text: "Ask A Question"
+                                        size_hint_y: None
+                                        height: 40
+                                        on_text_validate: root.ask_question()
+                                    MDLabel:
+                                        id: comp_reply
+                                        text: "Alex: Welcome"
+                                        bold: True
+                                        font_size: 20
+                                        theme_text_color: "Custom"
+                                        text_color: 1, 1, 1, 1
+                                        halign: "center"
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    size_hint_y: .3
+                                    Spinner:
+                                        id: select_voice
+                                        text: "FEMALE"
+                                        size_hint_y: None
+                                        height: 50
+                                        bold: True
+                                        background_color: (.06, .47, .47, 1)
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                size_hint_x: .3
+                                spacing: 10
+                                canvas.before:
+                                    Color:
+                                        rgba: (1, 1, 1, 1)
+                                    Rectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    size_hint_y: .1
+                                    canvas.before:
+                                        Color:
+                                            rgba: (.06, .45, .45, 1)
+                                        Rectangle:
+                                            pos: self.pos
+                                            size: self.size
+                                    MDLabel:
+                                        text: "Previous Asked Questions"
+                                        bold: True
+                                        font_size: "20dp"
+                                        halign: "center"
+                                        theme_text_color: "Custom"
+                                        text_color: 1, 1, 1, 1
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    size_hint_y: .8
+                                    canvas.before:
+                                        Color:
+                                            rgba: (.06, .45, .45, 1)
+                                        Rectangle:
+                                            pos: self.pos
+                                            size: self.size
+                                    Screen:
+                                        ScrollView:
+                                            MDList:
+                                                id: chat_questions
+                                                scroll_to: True
+                                                theme_text_color: "Custom"
+                                                text_color: 1, 1, 1, 1
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    size_hint_y: .1
+                                    canvas.before:
+                                        Color:
+                                            rgba: (.06, .45, .45, 1)
+                                        Rectangle:
+                                            pos: self.pos
+                                            size: self.size
+                                    MDRaisedButton:
+                                        id: speech_recognition_button
+                                        text: "Start Speech Recognition"
+                                        bold: True
+                                        font_size: 20
+                                        size_hint: 1, 1
+                                        pos_hint: {"center_x": .5, "center_y": .5}
+                                        on_release: root.control_speech_recognition()
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: .1
+                        spacing: 10
+                        canvas.before:
+                            Color:
+                                rgba: (1, 1, 1, 1)
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        MDRaisedButton:
+                            text: "Ask Question"
+                            bold: True
+                            font_size: 20
+                            size_hint: 1, 1
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            on_release: root.ask_question()
+                        MDRaisedButton:
+                            text: "Exit"
+                            bold: True
+                            font_size: 20
+                            size_hint: 1, 1
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            on_release: app.stop()
