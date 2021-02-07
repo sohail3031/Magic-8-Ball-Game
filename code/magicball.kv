@@ -50,6 +50,7 @@
                             pos_hint: {"center_x": .5, "center_y": .5}
                             bold: True
                             font_size: 20
+                            md_bg_color: (.06, .47, .47, 1)
                             on_release: root.change_first_screen()
                         MDRaisedButton:
                             text: "Exit"
@@ -57,6 +58,7 @@
                             pos_hint: {"center_x": .5, "center_y": .5}
                             bold: True
                             font_size: 20
+                            md_bg_color: (.06, .47, .47, 1)
                             on_release: app.stop()
                     MDBoxLayout:
                         orientation: "vertical"
@@ -123,6 +125,7 @@
                                 text: "Let's Play"
                                 bold: True
                                 font_size: 20
+                                md_bg_color: (.06, .47, .47, 1)
                                 on_release: root.validate_user_name()
                         MDBoxLayout:
                             orientation: "vertical"
@@ -189,7 +192,7 @@
                                         theme_text_color: "Custom"
                                         text_color: 1, 1, 1, 1
                                         halign: "center"
-                                        text: "Speech Recognition Status: OFF"
+                                        text: "Speech Recognition: OFF"
                                 MDBoxLayout:
                                     orientation: "vertical"
                                     size_hint_y: .3
@@ -261,11 +264,9 @@
                                             size: self.size
                                     Screen:
                                         ScrollView:
+                                            scroll_to: True
                                             MDList:
                                                 id: chat_questions
-                                                scroll_to: True
-                                                theme_text_color: "Custom"
-                                                text_color: 1, 1, 1, 1
                                 MDBoxLayout:
                                     orientation: "vertical"
                                     size_hint_y: .1
@@ -282,6 +283,7 @@
                                         font_size: 20
                                         size_hint: 1, 1
                                         pos_hint: {"center_x": .5, "center_y": .5}
+                                        md_bg_color: (.06, .47, .47, 1)
                                         on_release: root.control_speech_recognition()
                     MDBoxLayout:
                         orientation: "horizontal"
@@ -299,6 +301,7 @@
                             font_size: 20
                             size_hint: 1, 1
                             pos_hint: {"center_x": .5, "center_y": .5}
+                            md_bg_color: (.06, .47, .47, 1)
                             on_release: root.ask_question()
                         MDRaisedButton:
                             text: "Exit"
@@ -306,4 +309,5 @@
                             font_size: 20
                             size_hint: 1, 1
                             pos_hint: {"center_x": .5, "center_y": .5}
+                            md_bg_color: (.06, .47, .47, 1)
                             on_release: app.stop()
